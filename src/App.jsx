@@ -1,22 +1,3 @@
-/* import React from 'react';
-import { AuthProvider } from './context/AuthContext.jsx';
-import Login from './components/Login.jsx';
-import ErrorBoundary from './components/ErrorBoundary.jsx';
-
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <AuthProvider>
-        <div className="min-h-screen bg-gray-100">
-          <Login />
-        </div>
-      </AuthProvider>
-    </ErrorBoundary>
-  );
-};
-
-export default App; */
-
 import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import Login from './components/Login';
