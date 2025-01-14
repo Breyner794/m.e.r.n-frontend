@@ -41,7 +41,7 @@ const Pasajeros = () => {
 
   const fetchPasajeros = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/pasajeros`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/pasajeros`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -58,8 +58,8 @@ const Pasajeros = () => {
     e.preventDefault();
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/pasajeros/${currentId}`
-        : `${process.env.REACT_APP_API_URL}/api/pasajeros`;
+        ? `https://m-e-r-n-backend.onrender.com/api/pasajeros/${currentId}`
+        : `https://m-e-r-n-backend.onrender.com/api/pasajeros`;
         
       const response = await fetch(url, {
         method: isEditing ? 'PUT' : 'POST',
@@ -86,7 +86,7 @@ const Pasajeros = () => {
   const handleDelete = async (codigo_pasajero) => {
     if (window.confirm('¿Estás seguro de eliminar este pasajero?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/pasajeros/${codigo_pasajero}`, {
+        const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/pasajeros/${codigo_pasajero}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

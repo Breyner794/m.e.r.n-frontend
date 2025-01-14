@@ -35,7 +35,7 @@ const Roles = () => {
 
   const fetchRoles = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/roles`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/roles`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -51,8 +51,8 @@ const Roles = () => {
     e.preventDefault();
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/roles/${currentId}`
-        : `${process.env.REACT_APP_API_URL}/api/roles`;
+        ? `https://m-e-r-n-backend.onrender.com/api/roles/${currentId}`
+        : `https://m-e-r-n-backend.onrender.com/api/roles`;
         
       const response = await fetch(url, {
         method: isEditing ? 'PUT' : 'POST',
@@ -79,7 +79,7 @@ const Roles = () => {
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de eliminar este rol?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/roles/${id}`, {
+        const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/roles/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

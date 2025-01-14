@@ -29,7 +29,7 @@ const Vuelos = () => {
 
   const fetchVuelos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/vuelos`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/vuelos`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -41,7 +41,7 @@ const Vuelos = () => {
 
   const fetchAeropuertos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/aeropuertos`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/aeropuertos`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -53,7 +53,7 @@ const Vuelos = () => {
 
   const fetchAviones = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/aviones`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/aviones`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -67,8 +67,8 @@ const Vuelos = () => {
     e.preventDefault();
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/vuelos/${currentId}`
-        : `${process.env.REACT_APP_API_URL}/api/vuelos`;
+        ? `https://m-e-r-n-backend.onrender.com/api/vuelos/${currentId}`
+        : `https://m-e-r-n-backend.onrender.com/api/vuelos`;
 
       const aeropuertoOrigen = aeropuertos.find(a => a._id === formData.origen);
       const aeropuertoDestino = aeropuertos.find(a => a._id === formData.destino);
@@ -125,7 +125,7 @@ const Vuelos = () => {
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de eliminar este vuelo?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/vuelos/${id}`, {
+        const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/vuelos/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

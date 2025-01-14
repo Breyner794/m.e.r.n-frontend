@@ -33,7 +33,7 @@ const Tripulacion = () => {
 
   const fetchTripulaciones = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/tripulacion`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/tripulacion`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -47,7 +47,7 @@ const Tripulacion = () => {
 
   const fetchVuelos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/vuelos`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/vuelos`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -61,7 +61,7 @@ const Tripulacion = () => {
 
   const fetchEmpleados = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/empleados`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/empleados`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -77,8 +77,8 @@ const Tripulacion = () => {
     e.preventDefault();
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/tripulacion/${currentId}`
-        : `${process.env.REACT_APP_API_URL}/api/tripulacion`;
+        ? `https://m-e-r-n-backend.onrender.com/api/tripulacion/${currentId}`
+        : `https://m-e-r-n-backend.onrender.com/api/tripulacion`;
 
       // Encontrar el vuelo y empleado seleccionados para obtener sus códigos
       const vueloSeleccionado = vuelos.find(v => v._id === formData.id_vuelo);
@@ -118,7 +118,7 @@ const Tripulacion = () => {
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de eliminar este miembro de la tripulación?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/tripulacion/${id}`, {
+        const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/tripulacion/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

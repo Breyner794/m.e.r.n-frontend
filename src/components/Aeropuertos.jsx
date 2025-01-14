@@ -39,7 +39,7 @@ const Aeropuertos = () => {
 
   const fetchAeropuertos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/aeropuertos`, {
+      const response = await fetch('https://m-e-r-n-backend.onrender.com/api/aeropuertos', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -59,8 +59,8 @@ const Aeropuertos = () => {
     
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/aeropuertos/${currentIATA}`
-        : `${process.env.REACT_APP_API_URL}/api/aeropuertos`;
+        ? `https://m-e-r-n-backend.onrender.com/api/aeropuertos/${currentIATA}`
+        : 'https://m-e-r-n-backend.onrender.com/api/aeropuertos';
         
       const response = await fetch(url, {
         method: isEditing ? 'PUT' : 'POST',
@@ -89,7 +89,7 @@ const Aeropuertos = () => {
   const handleDelete = async (codigoIATA) => {
     if (window.confirm('¿Estás seguro de eliminar este aeropuerto?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/aeropuertos/${codigoIATA}`, {
+        const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/aeropuertos/${codigoIATA}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

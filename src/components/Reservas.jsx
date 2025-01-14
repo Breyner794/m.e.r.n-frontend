@@ -36,7 +36,7 @@ const Reservas = () => {
 
   const fetchPasajeros = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/pasajeros`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/pasajeros`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -48,7 +48,7 @@ const Reservas = () => {
 
   const fetchVuelos = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/vuelos`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/vuelos`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -60,7 +60,7 @@ const Reservas = () => {
 
   const fetchReservas = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/reservas`, {
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/reservas`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -77,8 +77,8 @@ const Reservas = () => {
     e.preventDefault();
     try {
       const url = isEditing 
-        ? `${process.env.REACT_APP_API_URL}/api/reservas/${currentId}`
-        : `${process.env.REACT_APP_API_URL}/api/reservas`;
+        ? `https://m-e-r-n-backend.onrender.com/api/reservas/${currentId}`
+        : `https://m-e-r-n-backend.onrender.com/api/reservas`;
 
       // Buscar el pasajero y vuelo seleccionados para obtener sus códigos
       const pasajeroSeleccionado = pasajeros.find(p => p._id === formData.id_pasajero);

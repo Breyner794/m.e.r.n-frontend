@@ -13,8 +13,25 @@ const Login = () => {
     e.preventDefault();
     setError('');
 
+    console.log('Datos a enviar:', formData);
+
+    if (!formData.email.trim() || !formData.password.trim()) {
+      setError('Por favor, complete todos los campos');
+      return;
+    }
+
+    const dataToSend = {
+      ...formData,
+      email: formData.email.trim().toLowerCase()
+    };
+  
+    console.log('Datos a enviar:', dataToSend);
+
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+
+      console.log('Haciendo petición a:', `https://m-e-r-n-backend.onrender.com/api/auth/login`);
+
+      const response = await fetch(`https://m-e-r-n-backend.onrender.com/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -22,7 +39,9 @@ const Login = () => {
         body: JSON.stringify(formData)
       });
 
+      console.log('Respuesta status:', response.status);
       const data = await response.json();
+      console.log('Respuesta data:', data);
 
       if (!response.ok) {
         throw new Error(data.message || 'Error al iniciar sesión');
@@ -31,6 +50,7 @@ const Login = () => {
       login(data.user, data.token);
       window.location.href = '/dashboard';
     } catch (err) {
+      console.error('Error completo:', err);
       setError(err.message);
     }
   };
