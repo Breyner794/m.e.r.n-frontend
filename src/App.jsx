@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { AuthProvider } from './context/AuthContext';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext.jsx';
+import Login from './components/Login.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
